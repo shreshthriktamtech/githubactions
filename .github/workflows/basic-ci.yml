@@ -3,7 +3,7 @@ name: Basic CI for Flask App
 on: [push]
 
 jobs:
-  basic-check:
+  on-start-up-checks:
     runs-on: ubuntu-latest 
 
     steps:
@@ -12,3 +12,14 @@ jobs:
 
       - name: Print Hello World
         run: echo "Hello, GitHub Actions is running!"
+      
+      - name: Print Logs
+        run: echo "New Change"
+  
+  on-log:
+    runs-on: ubuntu-latest 
+
+    steps:
+      - name: Print Logs
+        run: echo "New Logs"
+    

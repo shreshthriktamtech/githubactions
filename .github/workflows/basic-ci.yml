@@ -10,16 +10,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Print Hello World
-        run: echo "Hello, GitHub Actions is running!"
-      
-      - name: Print Logs
-        run: echo "New Change"
-  
-  on-log:
-    runs-on: ubuntu-latest 
+      - name: Print Start-up Message
+        run: echo "✅ GitHub Actions workflow has started!"
 
+      - name: Print Change Log
+        run: echo "🔄 Detected new changes in the repository."
+
+  on-log:
+    runs-on: ubuntu-latest
+    needs: on-start-up-checks  # This makes it dependent on the first job
     steps:
       - name: Print Logs
-        run: echo "New Logs"
-    
+        run: echo "📝 Logging information from on-start-up-checks..."
